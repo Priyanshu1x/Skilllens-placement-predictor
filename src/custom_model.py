@@ -35,12 +35,12 @@ class customlogisticregression:
         return (y_predicted_proba >= threshold).astype(int)
 
 if __name__ == "__main__":
-    X_train_clean, y_train, X_val_clean, y_val, X_test_clean, y_test = joblib.load('data/processed_data.pkl')
+    X_train, y_train, X_val, y_val, X_test, y_test = joblib.load('data/processed_data.pkl')
     y_train_binary = np.where(y_train == 'Placed', 1, 0)
     y_test_binary = np.where(y_test == 'Placed', 1, 0)
 
     model = customlogisticregression(learning_rate=0.1, epochs=1000)
-    model.fit(X_train_clean, y_train_binary)
+    model.fit(X_train, y_train_binary)
         
     joblib.dump(model, 'data/custom_baseline_model.pkl')
     print("Custom baseline trained and saved to data/custom_baseline_model.pkl")
