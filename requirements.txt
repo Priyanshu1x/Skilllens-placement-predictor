@@ -1,4 +1,8 @@
-pandas 
 numpy
-joblib
+pandas
 scikit-learn
+xgboost
+scipy
+streamlit
+joblib
+matplotlib
