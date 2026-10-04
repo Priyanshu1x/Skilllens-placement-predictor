@@ -9,6 +9,21 @@ A complete end-to-end machine learning pipeline and interactive web dashboard de
 4. **Data Drift Detection:** Includes a Kolmogorov-Smirnov (KS) test script to compare live incoming data against the training distribution to warn administrators of statistical drift.
 5. **Interactive UI:** A Streamlit dashboard supporting both single-student "what-if" analysis (with feature importance visualization) and batch CSV uploads.
 
+### System Architecture Diagram
+```mermaid
+graph TD
+    A[Raw Tabular Data] --> B[Data Preprocessing Pipeline]
+    B --> C[Imputation & Scaling]
+    C --> D[Feature Engineering]
+    D --> E{Model Comparison}
+    E --> F[XGBoost / Random Forest]
+    E --> G[Custom NumPy Logistic Regression]
+    G --> H[Streamlit UI Interface]
+    H --> I{Abstention Logic}
+    I -- >0.55 --> J[Automated: Placed]
+    I -- <0.45 --> K[Automated: Not Placed]
+    I -- 0.45 to 0.55 --> L[Manual: Human Review]
+
 ## 🚀 Setup & Execution
 
 ### 1. Install Dependencies
@@ -16,3 +31,4 @@ A complete end-to-end machine learning pipeline and interactive web dashboard de
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
+streamlit run src/app.py

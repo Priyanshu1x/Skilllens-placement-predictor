@@ -28,7 +28,6 @@ print("Recall:    ", recall_score(y_test_binary, rf_prediction))
 print("F1 score:  ", f1_score(y_test_binary, rf_prediction))
 print("PR-AUC:    ", average_precision_score(y_test_binary, rf_predict_proba))
 
-print("\n--- 3. XGBoost ---")
 xgb_predict_proba = xgb_model.predict_proba(x_test)[:, 1]
 xgb_prediction = xgb_model.predict(x_test)
 
