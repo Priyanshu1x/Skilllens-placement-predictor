@@ -23,12 +23,3 @@ graph TD
     I -- >0.55 --> J[Automated: Placed]
     I -- <0.45 --> K[Automated: Not Placed]
     I -- 0.45 to 0.55 --> L[Manual: Human Review]
-
-## 🚀 Setup & Execution
-
-### 1. Install Dependencies
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
-pip install -r requirements.txt
-streamlit run src/app.py
